@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeroclean | Credits</title>
+    <link rel="icon" type="image/x-icon" href="favicon_io/android-chrome-192x192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+/* ── AEROCLEAN SHARED DESIGN SYSTEM ── */
+:root {
+    --blue:      #004aad;
+    --blue-mid:  #0057cc;
+    --blue-lite: #a6d0ff;
+    --lime:      #c8ff00;
+    --ink:       #0a0d14;
+    --fog:       #f0f4ff;
+    --white:     #ffffff;
+    --nav-h:     64px;
+    --radius:    14px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--ink); color: var(--white);
+    overflow-x: hidden; min-height: 100vh;
+}
+
+/* ── NAV ── */
+.navbar {
+    position: fixed; top: 0; left: 0; width: 100%; height: var(--nav-h);
+    z-index: 9000; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 32px;
+    background: rgba(10,13,20,0.88); backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-logo img { height: 28px; filter: brightness(0) invert(1); }
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-links li { position: relative; }
+.nav-links a {
+    display: flex; align-items: center; gap: 5px;
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.78rem;
+    padding: 8px 14px; border-radius: 8px; transition: all 0.2s; letter-spacing: 0.5px;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.nav-dropdown {
+    display: none; position: absolute; top: calc(100% + 8px); left: 0;
+    background: rgba(10,13,20,0.97); backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+    min-width: 180px; padding: 6px; z-index: 100;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.nav-links li:hover .nav-dropdown { display: block; }
+.nav-dropdown a { display: block; padding: 10px 14px; border-radius: 8px; font-size: 0.78rem; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.nav-right a {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 700; font-size: 0.78rem;
+    text-decoration: none; padding: 8px 18px; border-radius: 8px;
+    letter-spacing: 0.5px; transition: all 0.2s;
+}
+#nav-signup { color: rgba(255,255,255,0.7); }
+#nav-signup:hover { color: #fff; background: rgba(255,255,255,0.08); }
+#nav-login { background: var(--blue); color: #fff; box-shadow: 0 4px 16px rgba(0,74,173,0.4); }
+#nav-login:hover { background: var(--blue-mid); transform: translateY(-1px); }
+.nav-team-logo img { height: 32px; opacity: 0.85; }
+
+/* ── MOBILE NAV ── */
+.mobile-header {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 60px;
+    background: rgba(10,13,20,0.95); backdrop-filter: blur(20px);
+    align-items: center; padding: 0 20px; z-index: 9001;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; margin-right: 16px; }
+.hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+.mobile-nav {
+    position: fixed; top: 60px; left: 0; width: 220px; height: calc(100% - 60px);
+    background: rgba(10,13,20,0.98); backdrop-filter: blur(24px);
+    border-right: 1px solid rgba(255,255,255,0.08); z-index: 9000;
+    padding: 24px 16px; flex-direction: column; gap: 4px;
+    transform: translateX(-100%); transition: transform 0.35s ease; display: flex;
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 0.85rem;
+    padding: 12px 16px; border-radius: 10px; transition: all 0.2s; display: block;
+}
+.mobile-nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.mobile-nav-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 8px 0; }
+.mobile-nav .mob-login {
+    background: var(--blue); color: #fff; border-radius: 8px; margin-top: 4px; text-align: center;
+}
+
+/* ── PAGE WRAPPER ── */
+.page-body {
+    padding-top: var(--nav-h); min-height: 100vh;
+    background: linear-gradient(160deg, #0d1420 0%, #0a0d14 60%, #0d1420 100%);
+}
+
+/* ── PAGE HERO ── */
+.page-hero {
+    padding: 64px 48px 56px; max-width: 1200px; margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.page-eyebrow {
+    font-size: 0.65rem; letter-spacing: 3px; color: var(--blue-lite);
+    text-transform: uppercase; font-weight: 700; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+}
+.page-eyebrow::before { content:''; width:20px; height:2px; background:var(--blue-lite); border-radius:2px; }
+.page-title {
+    font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800; text-transform: uppercase; line-height: 1.0;
+    color: #fff; letter-spacing: -1px;
+}
+.page-title em { font-style: normal; color: var(--blue-lite); }
+.page-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.45); margin-top: 14px; line-height: 1.7; max-width: 520px; }
+
+/* ── CONTENT AREA ── */
+.page-content { max-width: 1200px; margin: 0 auto; padding: 48px; }
+
+/* ── CARDS ── */
+.card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius); padding: 32px; transition: all 0.2s;
+}
+.card:hover { border-color: rgba(0,74,173,0.35); background: rgba(0,74,173,0.05); }
+.card-label {
+    font-size: 0.6rem; letter-spacing: 2.5px; color: rgba(255,255,255,0.3);
+    text-transform: uppercase; font-weight: 700; margin-bottom: 12px;
+}
+.card-value {
+    font-family: 'Syne', sans-serif; font-size: 3.5rem; font-weight: 800;
+    color: var(--lime); line-height: 1;
+}
+.card-sub { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 8px; line-height: 1.6; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    color: #fff; border: none; padding: 13px 26px; border-radius: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.5px; cursor: pointer; text-decoration: none;
+    box-shadow: 0 4px 18px rgba(0,74,173,0.4); transition: all 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,74,173,0.55); }
+.btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.15); padding: 13px 26px; border-radius: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.5px; cursor: pointer; text-decoration: none; transition: all 0.2s;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.btn-danger {
+    display: inline-flex; align-items: center;
+    background: rgba(220,50,50,0.15); color: #ff8080;
+    border: 1px solid rgba(220,50,50,0.3); padding: 13px 26px; border-radius: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 700;
+    cursor: pointer; text-decoration: none; transition: all 0.2s;
+}
+.btn-danger:hover { background: rgba(220,50,50,0.25); color: #ffaaaa; }
+
+/* ── FORM ELEMENTS ── */
+.form-group { margin-bottom: 18px; }
+.form-label {
+    display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px;
+}
+.form-input {
+    width: 100%; padding: 13px 16px; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 10px;
+    color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 0.88rem;
+    font-weight: 600; transition: all 0.2s; outline: none;
+}
+.form-input::placeholder { color: rgba(255,255,255,0.2); }
+.form-input:focus { border-color: rgba(0,74,173,0.6); background: rgba(0,74,173,0.08); box-shadow: 0 0 0 3px rgba(0,74,173,0.15); }
+.form-select {
+    width: 100%; padding: 13px 16px; background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 10px;
+    color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 0.88rem;
+    font-weight: 600; cursor: pointer; outline: none; transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.3)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 16px center;
+}
+.form-select:focus { border-color: rgba(0,74,173,0.6); box-shadow: 0 0 0 3px rgba(0,74,173,0.15); }
+.form-select option { background: #0a0d14; color: #fff; }
+
+/* ── STATUS BADGE ── */
+.status-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 20px; font-size: 0.68rem;
+    font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+}
+.status-good    { background: rgba(34,197,94,0.15);  color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+.status-mod     { background: rgba(234,179,8,0.15);  color: #fbbf24; border: 1px solid rgba(234,179,8,0.3); }
+.status-bad     { background: rgba(239,68,68,0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+.status-ugly    { background: rgba(168,85,247,0.15); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); }
+
+/* ── AQI DOT ── */
+.aqi-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+/* ── REVEAL ANIMATION ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── FOOTER ── */
+.page-footer {
+    background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 48px; text-align: center; margin-top: 80px;
+}
+.page-footer p { font-size: 0.72rem; color: rgba(255,255,255,0.2); }
+.page-footer a { color: rgba(255,255,255,0.35); text-decoration: none; margin: 0 12px; transition: color 0.2s; }
+.page-footer a:hover { color: rgba(255,255,255,0.7); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .navbar { display: none; }
+    .mobile-header { display: flex; }
+    .page-hero { padding: 36px 20px 40px; }
+    .page-content { padding: 32px 20px; }
+    .page-footer { padding: 28px 20px; }
+}
+
+
+.credits-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+.credits-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 32px; }
+.credits-card-title { font-family: "Syne",sans-serif; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--blue-lite); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.member { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.member:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.member-name { font-weight: 700; color: #fff; font-size: 0.9rem; margin-bottom: 3px; }
+.member-role { font-size: 0.68rem; color: var(--blue-lite); letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
+.methodology-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 32px; margin-bottom: 20px; }
+.meth-heading { font-family: "Syne",sans-serif; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.meth-sub { font-size: 0.68rem; letter-spacing: 2px; color: var(--blue-lite); text-transform: uppercase; font-weight: 700; margin: 20px 0 8px; }
+.meth-text { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.8; }
+.meth-link { color: var(--blue-lite); text-decoration: none; }
+.meth-link:hover { color: #fff; text-decoration: underline; }
+.security-card { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.2); border-radius: var(--radius); padding: 32px; }
+.security-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); padding: 6px 14px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 16px; }
+.license-card { background: rgba(0,74,173,0.08); border: 1px solid rgba(0,74,173,0.25); border-radius: var(--radius); padding: 28px 32px; text-align: center; margin-top: 20px; }
+.license-big { font-family: "Syne",sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--blue-lite); }
+@media (max-width: 640px) { .credits-layout { grid-template-columns: 1fr; } }
+
+    </style>
+</head>
+<body>
+<!-- SHARED NAVBAR FRAGMENT -->
+<!-- Mobile Header -->
+<div class="mobile-header" id="mobileHeader">
+    <div class="hamburger" onclick="toggleMobileNav()">
+        <span></span><span></span><span></span>
+    </div>
+    <img src="aerobar.png" alt="Aeroclean" style="height:26px;filter:brightness(0) invert(1);">
+</div>
+<div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="Newspage.html">Live Feed</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="Contactpage.html">Social Media</a>
+    <a href="partnership.html">Partnership</a>
+    <a href="Creditpage.html">Credits</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="index.html#services">Services</a>
+    <div class="mobile-nav-divider"></div>
+    <a href="SignUp.html" id="mob-signup">Sign Up</a>
+    <a href="LogIn.html" id="mob-login" class="mob-login">Log In</a>
+</div>
+<!-- Desktop Nav -->
+<nav class="navbar">
+    <div class="nav-logo"><img src="aerobar.png" alt="Aeroclean"></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Newspage.html">Live Feed</a></li>
+        <li>
+            <a href="#">Contact ▾</a>
+            <div class="nav-dropdown">
+                <a href="Contactpage.html">Social Media</a>
+                <a href="partnership.html">Partnership</a>
+                <a href="Creditpage.html">Credits</a>
+            </div>
+        </li>
+        <li><a href="index.html#services">Services</a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="SignUp.html" id="nav-signup">Sign Up</a>
+        <a href="LogIn.html" id="nav-login">Log In</a>
+        <div class="nav-team-logo"><img src="Carbn (7).png" alt="team"></div>
+    </div>
+</nav>
+
+<div class="page-body">
+    <div class="page-hero reveal">
+        <div class="page-eyebrow">Transparency</div>
+        <h1 class="page-title">Credits &amp; <em>Methodology</em></h1>
+        <p class="page-subtitle">How Aeroclean works, who built it, and what data powers it.</p>
+    </div>
+    <div class="page-content">
+
+        <!-- Methodology -->
+        <div class="methodology-card reveal">
+            <div class="meth-heading">How This Works</div>
+            <p class="meth-text">Not magic. Not guessing. Just data + estimation.</p>
+            <div class="meth-sub">Data Sources</div>
+            <div class="meth-text">
+                <a href="https://openweathermap.org/api/air-pollution" target="_blank" class="meth-link">OpenWeather</a> — Air Pollution API (PM2.5). Used under OpenWeather terms.<br>
+                <a href="https://waqi.info/" target="_blank" class="meth-link">WAQI</a> — AQI data provided by the WAQI Project. CC BY where applicable.<br>
+                <a href="https://developer.tomtom.com/" target="_blank" class="meth-link">TomTom</a> — Traffic & environmental context data. © TomTom.<br>
+                <a href="https://www.theguardian.com/" target="_blank" class="meth-link">The Guardian</a> — Open Platform for environmental news headlines.
+            </div>
+            <div class="meth-sub">What We Do</div>
+            <div class="meth-text">Convert AQI into PM2.5 concentration → estimate air volume above each city → calculate total pollution mass → translate into something human-readable.</div>
+            <div class="meth-sub">The Formula</div>
+            <div class="meth-text" style="font-family:monospace; background:rgba(0,0,0,0.3); padding:12px 16px; border-radius:8px; margin-top:8px;">
+                pollution mass ≈ concentration × area × height<br>buses ≈ total mass ÷ ~19 tons
+            </div>
+        </div>
+
+        <!-- Team -->
+        <div class="credits-layout">
+            <div class="credits-card reveal">
+                <div class="credits-card-title">Technical Team</div>
+                <div class="member"><div class="member-name">Gabriel Caraka Setyawan</div><div class="member-role">Project Director & Lead Developer</div></div>
+                <div class="member"><div class="member-name">Muhammad Farras Rabbani</div><div class="member-role">Back-end Systems & Debugger</div></div>
+                <div class="member"><div class="member-name">Arkana Birron Zulkarnain</div><div class="member-role">Data Research & Surveying</div></div>
+            </div>
+            <div class="credits-card reveal reveal-delay-1">
+                <div class="credits-card-title">Social Team</div>
+                <div class="member"><div class="member-name">Muhammad Fahd Azzamy</div><div class="member-role">Social Team Leader</div></div>
+                <div class="member"><div class="member-name">Georafa Risanto</div><div class="member-role">Project Manager & Group Leader</div></div>
+                <div class="member"><div class="member-name">Gavrilo Pele Amiel Manurung</div><div class="member-role">Customer Service</div></div>
+                <div class="member"><div class="member-name">Gamar Atamimi</div><div class="member-role">Social Media Operator</div></div>
+            </div>
+        </div>
+
+        <!-- Security -->
+        <div class="security-card reveal">
+            <div class="security-badge">✓ Google Security Audit Passed</div>
+            <div class="meth-heading" style="color:#4ade80; border-color:rgba(34,197,94,0.15);">Security & Verification</div>
+            <p class="meth-text">Aeroclean has passed a formal Google Safe Browsing audit. All user credentials are handled via industry-standard OAuth 2.0 protocols through Firebase Auth. No sensitive data is transmitted to third-party scripts.</p>
+        </div>
+
+        <!-- License -->
+        <div class="license-card reveal">
+            <div class="license-big">CC BY 4.0</div>
+            <p class="meth-text" style="margin-top:12px;">Some data used in this project is provided under Creative Commons Attribution 4.0. This project transforms and visualizes that data for educational and awareness purposes.</p>
+        </div>
+
+    </div>
+</div>
+<footer class="page-footer">
+    <a href="index.html">Home</a>
+    <a href="Newspage.html">Live Feed</a>
+    <a href="Contactpage.html">Contact</a>
+    <a href="Creditpage.html">Credits</a>
+    <a href="partnership.html">Partners</a>
+    <p style="margin-top:16px;">© 2025 Aeroclean · Built with ♡ in Indonesia</p>
+</footer>
+<script>
+function toggleMobileNav(){document.getElementById("mobileNav").classList.toggle("open");}
+document.addEventListener("click",e=>{
+    const n=document.getElementById("mobileNav"),h=document.getElementById("mobileHeader");
+    if(n&&n.classList.contains("open")&&!n.contains(e.target)&&h&&!h.contains(e.target))n.classList.remove("open");
+});
+new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible");}),{threshold:0.1}).observe;
+document.querySelectorAll&&document.querySelectorAll(".reveal").forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add("visible");},{threshold:0.1}).observe(el));
+</script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+    const app = initializeApp({apiKey:"AIzaSyC1_klTUcXAD7g6ulZ9YAbR99pYEUYbmNA",authDomain:"aeroclean-app.firebaseapp.com",projectId:"aeroclean-app",storageBucket:"aeroclean-app.firebasestorage.app",messagingSenderId:"761809749621",appId:"1:761809749621:web:f8e2daefd512f5bd6f1a3c"});
+    const auth = getAuth(app);
+    onAuthStateChanged(auth, user => {
+        const su=document.getElementById("nav-signup"),li=document.getElementById("nav-login"),msu=document.getElementById("mob-signup"),mli=document.getElementById("mob-login");
+        if(user){
+            if(su){su.textContent=user.displayName||"Account";su.removeAttribute("href");}
+            if(li){li.textContent="Log Out";li.removeAttribute("href");li.onclick=logOut;}
+            if(msu)msu.textContent=user.displayName||"Account";
+            if(mli){mli.textContent="Log Out";mli.onclick=logOut;}
+        } else {
+            if(su){su.textContent="Sign Up";su.href="SignUp.html";}
+            if(li){li.textContent="Log In";li.href="LogIn.html";li.onclick=null;}
+            if(msu){msu.textContent="Sign Up";msu.href="SignUp.html";}
+            if(mli){mli.textContent="Log In";mli.href="LogIn.html";mli.onclick=null;}
+        }
+    });
+    function logOut(){if(confirm("Sign out of Aeroclean?"))signOut(auth).then(()=>window.location.href="index.html");}
+</script>
+
+</body>
+</html>
